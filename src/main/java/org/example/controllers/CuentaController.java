@@ -41,7 +41,7 @@ public class CuentaController {
             return ResponseEntity.badRequest().body(errors);
         }
         CuentaDTO createdCuenta = cuentaService.createCuenta(cuentaDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdCuenta);
+        return ResponseEntity.status(HttpStatus.CREATED).body("La cuenta fue creada exitosamente");
     }
 
     @PatchMapping("/{cuentaId}")
@@ -49,7 +49,7 @@ public class CuentaController {
         try {
             CuentaDTO updatedCuenta = cuentaService.updateCuenta(cuentaId, cuentaDTO);
             if (updatedCuenta != null) {
-                return ResponseEntity.ok(updatedCuenta);
+                return ResponseEntity.ok("La actualización se realizó exitosamente");
             } else {
                 return ResponseEntity.notFound().build();
             }

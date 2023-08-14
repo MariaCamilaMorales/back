@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.ClienteDTO;
 import org.example.services.ClienteService;
@@ -24,6 +25,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @GetMapping("/getAll")
+    @Operation(summary = "Hola")
     public List<ClienteDTO> getAll(@RequestParam(defaultValue = "0") int page,
                                    @RequestParam(defaultValue = "1") int size) {
         List<ClienteDTO> listCliente = clienteService.getAll(page, size);
@@ -42,7 +44,7 @@ public class ClienteController {
             return ResponseEntity.badRequest().body(errors);
         }
         ClienteDTO createdCliente = clienteService.createCliente(clienteDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdCliente);
+        return ResponseEntity.status(HttpStatus.CREATED).body("El cliente fue creado exitosamente");
     }
 
     @PatchMapping("/{clienteId}")
@@ -50,7 +52,7 @@ public class ClienteController {
         try {
             ClienteDTO updatedCliente = clienteService.updateCliente(clienteId, clienteDTO);
             if (updatedCliente != null) {
-                return ResponseEntity.ok(updatedCliente);
+                return ResponseEntity.ok("La actualización se realizó exitosamente");
             } else {
                 return ResponseEntity.notFound().build();
             }

@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class ClienteServiceImpl implements ClienteService{
 
     @Autowired
-    @Lazy //
+    @Lazy
     private ClienteRepository clienteRepository;
     @Autowired
     @Lazy
@@ -53,7 +53,6 @@ public class ClienteServiceImpl implements ClienteService{
         if(clienteDTO.getGenero() != null) {
             cliente.setGenero(clienteDTO.getGenero());
         }
-        //PROBAR SI FUNCIONA OJOOO!!FIXME
         if(clienteDTO.getEdad() != null) {
             cliente.setEdad(clienteDTO.getEdad());
         }
@@ -69,7 +68,6 @@ public class ClienteServiceImpl implements ClienteService{
         if(clienteDTO.getContrasena() != null) {
             cliente.setContrasena(clienteDTO.getContrasena());
         }
-        //PENDIENTE POR MODIFICACION - Boolean ( CON MAYUSCULA LA PRIMERA)TODO
         if(clienteDTO.getEstado() != null) {
             cliente.setEstado(Boolean.valueOf(clienteDTO.getEstado()));
         }
