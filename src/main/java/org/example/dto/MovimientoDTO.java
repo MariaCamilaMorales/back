@@ -9,6 +9,7 @@ public class MovimientoDTO {
     private Long movimientoId;
     private Date fecha;
     private String tipoMovimiento;
-    private double valor;
-    private double saldo;
+    private Double valor;
+    private Double saldo;
+    private CuentaDTO cuenta;
 }

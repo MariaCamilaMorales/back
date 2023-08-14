@@ -10,4 +10,6 @@ public interface MovimientoService {
     MovimientoDTO createMovimiento(MovimientoDTO movimientoDTO);
 
     MovimientoDTO updateMovimiento(Long movimientoId, MovimientoDTO movimientoDTO);
+
+    void delete(Long movimientoId);
 }
